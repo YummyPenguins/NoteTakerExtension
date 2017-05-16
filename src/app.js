@@ -86,13 +86,13 @@ class App extends React.Component {
 
   componentDidMount() {
     if (this.state.loggedIn) {
-      this.fetch();
+      setInterval(() => {this.fetch()}, 1500);
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.loggedIn && !this.state.loggedIn) {
-      this.fetch();
+      setInterval(() => {this.fetch()}, 1500);
     }
   }
 
