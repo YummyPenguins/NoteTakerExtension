@@ -28824,12 +28824,16 @@ var App = function (_React$Component) {
     _this.handleSignout = _this.handleSignout.bind(_this);
 
     _this.auth = new _AuthService2.default("7ahU6Olf4SuRFf3B3lDGVuY6DGP0hj5T", "dhsiao89.auth0.com", _this.handleAuthenticate);
+
     _this.state = {
       data: { urls: [] },
       loggedIn: _this.auth.loggedIn()
     };
     return _this;
   }
+
+  //Check if logged in
+
 
   _createClass(App, [{
     key: "handleAuthenticate",
@@ -28838,6 +28842,9 @@ var App = function (_React$Component) {
         loggedIn: this.auth.loggedIn()
       });
     }
+
+    //Get specific user
+
   }, {
     key: "fetch",
     value: function fetch() {
@@ -28851,6 +28858,9 @@ var App = function (_React$Component) {
         console.error(error);
       });
     }
+
+    //Remove note from database
+
   }, {
     key: "deleteNote",
     value: function deleteNote(name, uri, note) {
@@ -28866,6 +28876,9 @@ var App = function (_React$Component) {
         console.error(error);
       });
     }
+
+    //Remove entire url from database
+
   }, {
     key: "deleteList",
     value: function deleteList(name, uri) {
@@ -28881,6 +28894,9 @@ var App = function (_React$Component) {
         console.error(error);
       });
     }
+
+    //Set sign out state
+
   }, {
     key: "handleSignout",
     value: function handleSignout() {
@@ -37512,6 +37528,8 @@ var Nav = function (_React$Component) {
     value: function render() {
       var loggedIn = this.props.auth.loggedIn();
       var authButton;
+
+      //Conditional to render correct button if logged in or not
       if (!loggedIn) {
         authButton = _react2.default.createElement(
           "a",
@@ -37647,7 +37665,7 @@ var AuthService = function () {
     this.authenticateCallback = authenticateCallback;
     this.lock = new _auth0Lock2.default(clientId, domain, {
       auth: {
-        redirectUrl: "http://localhost:3003/",
+        redirectUrl: "https://noteextension.herokuapp.com/",
         responseType: "token"
       }
     });
