@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var options = {server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000 }},
                 replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS : 30000 }}};
 
-var MONGODB_URI = 'mongodb://heroku_sz03msp8:f8dr4mvag1ke4iuaabbc4hna17@ds133221.mlab.com:33221/heroku_sz03msp8';
+var MONGODB_URI = 'mongodb://heroku_z6nww726:1bfm6s8d9k9q7f52h1erqlmo3i@ds143181.mlab.com:43181/heroku_z6nww726';
 mongoose.connect(MONGODB_URI, options);
 
 mongoose.Promise = global.Promise;
