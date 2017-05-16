@@ -20,4 +20,4 @@ db.once('open', function() {
 module.exports = db;
 
 // 'mongodb://localhost:27017/NoteExtension'
-// 'mongodb://heroku_sz03msp8:f8dr4mvag1ke4iuaabbc4hna17@ds133221.mlab.com:33221/heroku_sz03msp8'
+// 'mongodb://heroku_z6nww726:1bfm6s8d9k9q7f52h1erqlmo3i@ds143181.mlab.com:43181/heroku_z6nww726
