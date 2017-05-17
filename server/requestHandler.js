@@ -96,7 +96,12 @@ exports.userAddNotes = (req, res) => {
       if(err) {
         res.status(404).send('Could not find user.');
       }
-      var pages = user.urls.map(site => site.name);
+
+      var pages = [];
+      
+      if(user.urls.length !== 0){
+        var pages = user.urls.map(site => site.name);
+      }
 
       if(pages.includes(req.body.uri)) {
         user.urls[pages.indexOf(req.body.uri)].pins.push(req.body.note);
