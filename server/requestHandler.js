@@ -96,24 +96,21 @@ exports.userAddNotes = (req, res) => {
       if(err) {
         res.status(404).send('Could not find user.');
       }
-
-      var pages = [];
-      
-      if(user.urls.length !== 0){
+      if(user) {
         var pages = user.urls.map(site => site.name);
-      }
 
-      if(pages.includes(req.body.uri)) {
-        user.urls[pages.indexOf(req.body.uri)].pins.push(req.body.note);
-      } else {
-        user.urls.push({
-          name: req.body.uri,
-          pins: [req.body.note]
-        });
+        if(pages.includes(req.body.uri)) {
+          user.urls[pages.indexOf(req.body.uri)].pins.push(req.body.note);
+        } else {
+          user.urls.push({
+            name: req.body.uri,
+            pins: [req.body.note]
+          });
+        }
+        user.markModified('urls');
+        user.save();
+        res.status(201).send('Post Success');
       }
-      user.markModified('urls');
-      user.save();
-      res.status(201).send('Post Success');
     });
   }
 };
